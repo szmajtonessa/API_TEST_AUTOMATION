@@ -1,56 +1,20 @@
 
 pet_response_schema = {
-    
-  "type": "object",
+
   "properties": {
     "id": {
       "type": "integer"
-    },
-    "category": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name"
-      ]
     },
     "name": {
       "type": "string"
     },
     "photoUrls": {
       "type": "array",
-      "items": [
-        {
-          "type": "string"
-        }
-      ]
+      "items": {}
     },
     "tags": {
       "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "integer"
-            },
-            "name": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id",
-            "name"
-          ]
-        }
-      ]
+      "items": {}
     },
     "status": {
       "type": "string"
@@ -58,7 +22,6 @@ pet_response_schema = {
   },
   "required": [
     "id",
-    "category",
     "name",
     "photoUrls",
     "tags",

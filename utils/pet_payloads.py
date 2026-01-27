@@ -9,3 +9,14 @@ pet_payload_post_test = {
     "name" :"PostTestPet",
     "status": "available"
 }
+
+pet_payload_updated = {
+    "name": "UpdatedPet",
+    "status": "sold"
+}
+
+pet_payload_invalid = {
+    "id": 0,
+    "name": "InvalidPet",
+    "status": "invalid_status"
+}
