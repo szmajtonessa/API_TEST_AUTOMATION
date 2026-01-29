@@ -2,8 +2,9 @@ import pytest
 
 @pytest.mark.crud
 @pytest.mark.smoke
-def test_pet_get_response_valid(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_get_response_valid(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     response = session.get(f"{session.base_url}/pet/{pet_payload['id']}")
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']
@@ -14,8 +15,9 @@ def test_pet_get_response_valid(setup_environment):
     assert isinstance(response.json()['status'], str)
 
 @pytest.mark.smoke
-def test_find_by_status_valid(setup_environment):
-    session, pet_payload = setup_environment
+def test_find_by_status_valid(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     response = session.get(f"{session.base_url}/pet/findByStatus", params={"status": pet_payload['status']})
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']

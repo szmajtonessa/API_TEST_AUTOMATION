@@ -6,8 +6,9 @@ from schemas import schemas
 import pytest
 
 @pytest.mark.contract
-def test_pet_get_schema(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_get_schema(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     response = session.get(f"{session.base_url}/pet/{pet_payload["id"]}")
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']
@@ -16,8 +17,9 @@ def test_pet_get_schema(setup_environment):
     validate(instance=response_json, schema=schemas.pet_response_schema)
 
 @pytest.mark.contract
-def test_find_by_status_schema(setup_environment):
-    session, pet_payload = setup_environment
+def test_find_by_status_schema(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     response = session.get(f"{session.base_url}/pet/findByStatus", params={"status": pet_payload['status']})
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']
@@ -28,7 +30,7 @@ def test_find_by_status_schema(setup_environment):
 
 @pytest.mark.contract
 def test_pet_post_schema(setup_environment):
-    session, pet_payload = setup_environment
+    session = setup_environment
     response = session.post(f"{session.base_url}/pet", json=pet_payloads.pet_payload_post_test)
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']

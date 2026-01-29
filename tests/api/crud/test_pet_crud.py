@@ -5,8 +5,9 @@ import pytest
 
 @pytest.mark.crud
 @pytest.mark.smoke
-def test_pet_get_response_valid(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_get_response_valid(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     response = session.get(f"{session.base_url}/pet/{pet_payload['id']}")
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']
@@ -17,22 +18,24 @@ def test_pet_get_response_valid(setup_environment):
     assert isinstance(response.json()['status'], str)
 
 @pytest.mark.crud
-def test_pet_get_deleted(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_get_deleted(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     delete_response = session.delete(f"{session.base_url}/pet/{pet_payload['id']}")
     assert delete_response.status_code == 200
     get_response = session.get(f"{session.base_url}/pet/{pet_payload['id']}")
     assert get_response.status_code == 404
 
 @pytest.mark.crud
-def test_pet_delete(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_delete(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     delete_response = session.delete(f"{session.base_url}/pet/{pet_payload['id']}")
     assert delete_response.status_code == 200
 
 @pytest.mark.crud
 def test_pet_post_valid(setup_environment):
-    session, pet_payload = setup_environment
+    session  = setup_environment
     response = session.post(f"{session.base_url}/pet", json=pet_payloads.pet_payload_post_test)
     assert response.status_code == 200
     assert 'application/json' in response.headers['Content-Type']
@@ -42,8 +45,9 @@ def test_pet_post_valid(setup_environment):
     assert response.json()['status'] == pet_payloads.pet_payload_post_test['status']
 
 @pytest.mark.crud
-def test_pet_update_valid(setup_environment):
-    session, pet_payload = setup_environment
+def test_pet_update_valid(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     updated_payload = pet_payload.copy()
     updated_payload['name'] = pet_payloads.pet_payload_updated["name"]
     updated_payload['status'] = pet_payloads.pet_payload_post_test["status"]
@@ -57,8 +61,9 @@ def test_pet_update_valid(setup_environment):
 
 @pytest.mark.crud
 @pytest.mark.edge
-def test_delete_pet_twice(setup_environment):
-    session, pet_payload = setup_environment
+def test_delete_pet_twice(setup_environment, pet):
+    session = setup_environment
+    pet_payload = pet
     delete_response = session.delete(f"{session.base_url}/pet/{pet_payload["id"]}")
     assert delete_response.status_code == 200
     delete_response = session.delete(f"{session.base_url}/pet/{pet_payload["id"]}")
