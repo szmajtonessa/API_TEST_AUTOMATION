@@ -37,22 +37,23 @@ PROJECT STRUCTURE
 
 How to run tests locally  
 
-1. Install dependencies  pip install -r requirements.txt  
+1. Install dependencies  
+pip install -r requirements.txt  
 
-2.1 Run all tests  
+2. Run all tests  
 pytest -v  
 
-2.2 Run selected tests  
+3. Run selected tests  
 pytest -m smoke  
 pytest -m contract  
 pytest -m crud  
 pytest -m edge  
 pytest -m negative  
   
-3. Generate Allure results  
+4. Generate Allure results  
 pytest --alluredir=allure_results  
 
-4. Open Allure report  
+5. Open Allure report  
 allure serve allure-results  
 Note: allure_results and allure_report are generated locally or in CI and are not commited to the repository.  
 
