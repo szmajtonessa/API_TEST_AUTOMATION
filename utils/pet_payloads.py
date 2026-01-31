@@ -18,5 +18,5 @@ pet_payload_updated = {
 pet_payload_invalid = {
     "id": 0,
     "name": "InvalidPet",
-    "status": "invalid_status"
+    "status": "3554_5P46H3TT4"
 }
