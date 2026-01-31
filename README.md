@@ -36,7 +36,7 @@ PROJECT STRUCTURE
 |-----.gitignore  
 
 How to run tests locally  
-
+  
 1. Install dependencies
 pip install -r requirements.txt
 
