@@ -49,13 +49,13 @@ pytest -m contract
 pytest -m crud  
 pytest -m edge  
 pytest -m negative  
+  
+3. Generate Allure results  
+pytest --alluredir=allure_results  
 
-3. Generate Allure results
-pytest --alluredir=allure_results
-
-4. Open Allure report
-allure serve allure-results
-Note: allure_results and allure_report are generated locally or in CI and are not commited to the repository.
+4. Open Allure report  
+allure serve allure-results  
+Note: allure_results and allure_report are generated locally or in CI and are not commited to the repository.  
 
 Test types  
 
