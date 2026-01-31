@@ -35,9 +35,8 @@ PROJECT STRUCTURE
 |-----README.md  
 |-----.gitignore  
 
-How to run tests locally  
-1. Install dependencies  
-pip install -r requirements.txt  
+How to run tests locally
+1. Install dependencies  pip install -r requirements.txt  
 
 2.1 Run all tests  
 pytest -v  
