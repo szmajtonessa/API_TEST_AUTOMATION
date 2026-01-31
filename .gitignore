@@ -205,3 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# REPORTS
+reports/html
+reports/xml
+reports/allure_results
+reports/allure_reports
+reports/allure
