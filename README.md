@@ -1,6 +1,6 @@
 Petstore API Tests  
-  
-Automated API tests for the Swagger Petstore using **pytest**, **requests**, **jsonschema** and **Allure**.  
+This project demonstrates API testing of a public REST service (Swagger Petstore) using Python + pytest.  
+It focuses on real-world QA scenarios: unstable data, negative cases, contract validation, and CI execution.   
 
 Tech stack  
 
